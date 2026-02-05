@@ -22,15 +22,14 @@ body {
     color: $logo;
   }
 }
-// .subtitle {
-//   color: $subtitle;
-//   @include font(14px, 17px, 400);
-//   border: 1px solid $gray;
-//   border-radius: 24px;
-//   padding: 12px 20px;
-//   margin: 0 auto;
-//   width: fit-content;
-// }
+.subtitle {
+  color: $subtitle;
+  @include font(14px, 17px, 400);
+  border: 1px solid $gray;
+  border-radius: 24px;
+  padding: 12px 20px;
+  margin: 0 auto 16px;
+}
 .header {
   padding: 20px 0;
   margin-bottom: 40px;
@@ -72,20 +71,31 @@ body {
     align-items: center;
     gap: 8px;
 
-    padding: 10px 11px;
-    margin: 0 auto 16px;
+    padding: 11.5px 11px;
 
+    border: none;
     z-index: 1;
     border-radius: 24px;
-    background-color: $body;
     max-width: 137px;
   }
   &__subtitle::before {
     content: "";
     position: absolute;
-    inset: 0;
+    inset: -1px;
     border-radius: inherit;
-    background: linear-gradient(180deg, $border, $gradient);
+    background: linear-gradient(to left, $border, $gradient);
+    z-index: -1;
+  }
+  &__subtitle::after{
+    content: '';
+    background-color: $body;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: inherit;
     z-index: -1;
   }
   &__title {
@@ -117,6 +127,7 @@ body {
   }
   &__btn-video {
     @include font(16px, 20px, 400);
+    position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -125,21 +136,134 @@ body {
     width: 100%;
     color: $title;
     background-color: $body;
-    border: 1px solid $gray;
-    border-radius: 40px;
+    border: none;
+    border-radius: 40px; 
     padding: 14px 23px;
     margin: 0 auto;
   }
-
+  &__btn-video::before{
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(to left, $border, $gradient);
+    z-index: -1;
+  }
+    // &__btn-video::after{
+    //   content: '';
+    //   display: block;
+    //   position: absolute;
+    //   width: 100%;
+    //   height: 100%;
+    //   left: 0;
+    //   top: 0;
+    //   z-index: -1;
+    //   background-color: $body;
+    //   border-radius: inherit;
+    // }
   &__img-wrap {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 32px;
+    padding: 32px 0 40px;
   }
   &__img {
     aspect-ratio: 1/1;
-    width: 74.6%;
+    width: 82.78%;
+  }
+}
+
+
+.brands{
+  background-color: $nextBody;
+  padding: 40px 0;
+  .container{
+    padding: 0 36px;
+  }
+  &__title{
+    @include font(16px, 20px, 400);
+    color: $text;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  &__wrap{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    row-gap: 12px;
+  }
+}
+
+
+.features{
+  padding: 40px 0;
+  &__subtitle{
+    max-width: 100px;
+    padding: 11.2px 20px;
+  }
+  &__title{
+    @include font(28px, 28px, 400);
+    color: $title;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  &__text{
+    @include font(16px, 20px, 400);
+    color: $text;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  &__wrap{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .feature{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 24px;
+    background-color: $article;
+    border-radius: 12px;
+    &__img{
+      margin-bottom: 36px;
+    }
+    &__title{
+      @include font(20px, 28px, 400);
+      color: $title;
+      font-family: 'Inter';
+      margin-bottom: 16px;
+    }
+    &__text{
+      @include font(16px, 20px, 400);
+      color: $text;
+      font-family: 'Inter';
+      text-align: center;
+    }
+  }
+  .feature::before{
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    z-index: -1;
+    background: linear-gradient(to left, $border, $gradient);
+  }
+  .feature::after{
+    content: '';
+    background-color: $body;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: inherit;
+    z-index: -1;
   }
 }
