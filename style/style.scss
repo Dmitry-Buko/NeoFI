@@ -23,8 +23,8 @@ body {
   }
 }
 .subtitle {
-  color: $subtitle;
   @include font(14px, 17px, 400);
+  color: $subtitle;
   border: 1px solid $gray;
   border-radius: 24px;
   padding: 11.2px 20px;
@@ -32,7 +32,6 @@ body {
 }
 .header {
   padding: 20px 0;
-  margin-bottom: 40px;
   .container {
     display: flex;
     flex-direction: row;
@@ -54,8 +53,7 @@ body {
       transition: transform 0.3s linear;
     }
   }
-  &__nav,
-  &__actions {
+  &__nav {
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -104,7 +102,6 @@ body {
   .header__menu {
     transform: translateX(0);
   }
-  .header__actions,
   .header__nav {
     display: flex;
     flex-direction: column;
@@ -127,17 +124,22 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-top: 40px;
     @media (min-width: 768px) {
       flex-direction: row;
+      margin: 60px 0;
     }
   }
-  &__description{
+  &__description {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    @media (min-width: 768px) {
+      align-items: start;
+    }
   }
   &__subtitle {
     @include font(14px, 14px, 400);
-    color: $subtitle;
     position: relative;
     display: flex;
     align-items: center;
@@ -145,11 +147,10 @@ body {
     padding: 11.5px 11px;
     border: none;
     z-index: 1;
-    border-radius: 24px;
     max-width: 137px;
-    // @media(min-width: 768px){
-
-    // }
+    @media (min-width: 768px) {
+      margin: 0 0 24px;
+    }
   }
   &__subtitle::before {
     content: "";
@@ -176,12 +177,28 @@ body {
     color: $title;
     text-align: center;
     margin-bottom: 16px;
+    @media (min-width: 768px) {
+      @include font(52px, 57.2px, 500);
+      text-align: start;
+    }
+    @media (min-width: 1025px) {
+      @include font(62px, 110%, 700);
+      margin-bottom: 27px;
+    }
   }
   &__text {
     @include font(16px, 20px, 400);
     color: $text;
     text-align: center;
     margin-bottom: 32px;
+    @media (min-width: 768px) {
+      @include font(18px, 25.2px, 400);
+      text-align: start;
+    }
+    @media (min-width: 1025px) {
+      @include font(20px, 28px, 400);
+      margin-bottom: 43px;
+    }
   }
   &__buttons {
     display: flex;
@@ -197,41 +214,56 @@ body {
     padding: 14px 24px;
     max-width: 140px;
     margin: 0 auto;
+    @media (min-width: 1025px) {
+      @include font(18px, 18px, 400);
+      max-width: 151px;
+    }
   }
-  &__btn-video {
-    @include font(16px, 20px, 400);
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 6px;
-    max-width: 178px;
-    width: 100%;
-    color: $title;
-    background-color: $body;
-    border: none;
-    border-radius: 40px;
-    padding: 14px 23px;
-    margin: 0 auto;
-  }
-  &__btn-video::before {
-    content: "";
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    background: linear-gradient(to left, $border, $gradient);
-    z-index: -1;
-  }
+
+  // &__btn-video {
+  //   @include font(16px, 20px, 400);
+  //   position: relative;
+  //   display: flex;
+  //   flex-direction: row;
+  //   align-items: center;
+  //   gap: 6px;
+  //   max-width: 178px;
+  //   width: 100%;
+  //   color: $title;
+  //   background-color: $body;
+  //   border: none;
+  //   border-radius: 40px;
+  //   padding: 14px 23px;
+  //   margin: 0 auto;
+  // }
+  // &__btn-video::before {
+  //   content: "";
+  //   position: absolute;
+  //   inset: -1px;
+  //   border-radius: inherit;
+  //   background: linear-gradient(to left, $border, $gradient);
+  //   z-index: -1;
+  // }
   &__img-wrap {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 32px 0 40px;
+    @media (min-width: 768px) {
+      padding: 0;
+    }
+    @media (min-width: 1025px){
+      justify-content: flex-end;
+    }
   }
   &__img {
     aspect-ratio: 1/1;
     width: 82.78%;
+    max-width: 512px;
+    @media (min-width: 768px) {
+      width: 100%;
+    }
   }
 }
 
@@ -242,44 +274,86 @@ body {
     padding: 0 36px;
   }
   &__title {
-    @include font(16px, 20px, 400);
+    @include font(16px, 16px, 400);
     color: $text;
     text-align: center;
     margin-bottom: 32px;
+    @media (min-width: 1025px){
+      margin-bottom: 40px;
+    }
   }
   &__wrap {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
     column-gap: 20px;
     row-gap: 12px;
+    @media (min-width: 1025px) {
+      column-gap: 72px;
+    }
+  }
+  &__item{
+    @media (min-width: 1025px){
+      width: 129px;
+
+    }
+  }
+  &__img{
+    width: 100%;
   }
 }
 
 .features {
   padding: 40px 0;
+  @media (min-width: 768px) {
+    padding: 60px 0;
+  }
+  @media (min-width: 1025px) {
+    padding: 80px 0;
+  }
   &__subtitle {
     max-width: 100px;
     padding: 11.2px 20px;
+    @media (min-width: 1025px) {
+      margin-bottom: 20px;
+    }
   }
   &__title {
     @include font(28px, 28px, 400);
     color: $title;
     text-align: center;
     margin-bottom: 16px;
+    @media (min-width: 768px) {
+      @include font(38px, 38px, 400);
+    }
+    @media (min-width: 1025px) {
+      @include font(48px, 48px, 400);
+      margin-bottom: 20px;
+    }
   }
   &__text {
     @include font(16px, 20px, 400);
     color: $text;
     text-align: center;
-    margin-bottom: 32px;
+    margin: 0 auto 32px;
+    max-width: 644px;
+    @media (min-width: 768px) {
+      @include font(17px, 23.8px, 400);
+    }
+    @media (min-width: 1025px) {
+      @include font(18px, 25.2px, 400);
+      margin-bottom: 80px;
+    }
   }
-
   &__wrap {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     gap: 16px;
+    column-gap: 24px;
   }
   .feature {
     position: relative;
@@ -289,7 +363,10 @@ body {
     padding: 30px 24px;
     background-color: $article;
     border-radius: 12px;
-    max-width: 382px;
+    max-width: 384px;
+    @media (min-width: 1025px) {
+      padding: 48px 36px;
+    }
     &__img {
       margin-bottom: 36px;
     }
@@ -331,33 +408,67 @@ body {
 .statistics {
   padding: 40px 0;
   background-color: $nextBody;
+  @media (min-width: 768px) {
+    padding: 80px 0;
+  }
+  @media (min-width: 1025px) {
+    padding: 120px 0;
+  }
   &__subtitle {
     max-width: 104px;
+    @media (min-width: 1025px){
+      margin-bottom: 20px;
+    }
   }
   &__main-title {
     @include font(28px, 28px, 400);
     color: $title;
     text-align: center;
     margin-bottom: 16px;
+    @media (min-width: 768px) {
+      @include font(38px, 38px, 400);
+    }
+    @media (min-width: 1025px) {
+      @include font(48px, 48px, 400);
+      margin-bottom: 20px;
+    }
   }
   &__text {
     @include font(14px, 17px, 400);
     color: $text;
     text-align: center;
-    margin-bottom: 32px;
+    margin: 0 auto 32px;
+    max-width: 644px;
+    @media (min-width: 768px) {
+      @include font(17px, 23.8px, 400);
+    }
+    @media (min-width: 1025px) {
+      @include font(18px, 25.2px, 400);
+      margin-bottom: 72px;
+    }
   }
   &__wrap {
     display: flex;
     flex-direction: column;
-    // justify-content: center;
-    // align-items: center;
+    align-items: center;
+    justify-content: center;
     gap: 24px;
+    @media (min-width: 768px) {
+      flex-direction: row;
+      gap: 60px;
+    }
+    @media (min-width: 1025px) {
+      gap: 72px;
+    }
   }
   &__title {
     @include font(48px, 48px, 400);
     color: $subtitle;
     text-align: center;
     margin-bottom: 12px;
+    @media (min-width: 1025px){
+      margin-bottom: 20px;
+    }
   }
   &__item:last-child {
     .statistics__title {
@@ -374,45 +485,97 @@ body {
 
 .technology {
   padding: 40px 0;
+  @media (min-width: 768px) {
+    padding: 50px 0;
+  }
+  @media (min-width: 1025px) {
+    padding: 60px 0;
+  }
   &__subtitle {
     max-width: 94px;
+    padding: 12.7px 20px;
+    @media (min-width: 768px) {
+      @include font(14px, 14px, 400);
+    }
+    @media (min-width: 1025px) {
+      margin-bottom: 20px;
+    }
   }
   &__main-title {
     @include font(28px, 28px, 400);
     color: $title;
     text-align: center;
     margin-bottom: 16px;
+    @media (min-width: 768px) {
+      @include font(38px, 38px, 400);
+    }
+    @media (min-width: 1025px) {
+      @include font(48px, 48px, 400);
+      margin-bottom: 20px;
+    }
   }
   &__main-text {
-    @include font(16px, 140%, 400);
+    @include font(16px, 22.4px, 400);
     color: $text;
+    max-width: 644px;
     text-align: center;
+    margin: 0 auto 32px;
+    @media (min-width: 768px) {
+      @include font(17px, 23.8px, 400);
+    }
+    @media (min-width: 1025px) {
+      @include font(18px, 25.2px, 400);
+      margin-bottom: 80px;
+    }
+  }
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
   }
   &__img-wrap {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 32px 0;
+    padding-bottom: 32px;
+    @media (min-width: 768px) {
+      justify-content: start;
+      padding: 0;
+      flex: 1 1 48%;
+    }
   }
   &__img {
     width: 82.78%;
     aspect-ratio: 1/1;
+    max-width: 506px;
+    @media (min-width: 768px) {
+      width: 90%;
+    }
   }
   &__article-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
     gap: 16px;
+    flex: 1 1 52%;
+    min-width: 362px;
+    max-width: 622px;
+    @media (min-width: 1025px){
+      row-gap: 40px;
+    }
   }
   &__article {
     position: relative;
     display: grid;
     grid-template-columns: 50px 1fr;
     background-color: $nextBody;
-    max-width: 522px;
+    max-width: 622px;
     padding: 24px 20px;
     border-radius: 20px;
+    @media (min-width: 1025px) {
+      padding: 36px 20px;
+    }
   }
   &__article::before {
     content: "";
@@ -432,9 +595,6 @@ body {
     top: 0;
     z-index: -1;
   }
-  // &__text-wrap{
-
-  // }
   &__title {
     @include font(20px, 28px, 400);
     font-family: "Inter";
@@ -446,15 +606,25 @@ body {
     @include font(14px, 17px, 400);
     text-align: left;
     color: $text;
+    @media (min-width: 768px) {
+      @include font(15px, 15px, 400);
+    }
+    @media (min-width: 1025px) {
+      @include font(16px, 16px, 400);
+    }
   }
 }
 
 .revolutionary {
   padding: 40px 0;
   background-color: $nextBody;
+  @media (min-width: 1025px) {
+    padding: 80px 0;
+  }
   .container {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 20px;
   }
   &__subtitle {
@@ -467,12 +637,26 @@ body {
     @include font(28px, 28px, 400);
     color: $title;
     text-align: center;
+    max-width: 878px;
+    @media (min-width: 768px) {
+      @include font(38px, 38px, 400);
+    }
+    @media (min-width: 1025px) {
+      @include font(48px, 48px, 400);
+    }
   }
   &__text {
-    @include font(16px, 140%, 400);
+    @include font(16px, 22.4px, 400);
     font-family: "Inter";
     text-align: center;
     color: $text;
+    max-width: 644px;
+    @media (min-width: 768px) {
+      @include font(17px, 23.8px, 400);
+    }
+    @media (min-width: 1025px) {
+      @include font(18px, 25.2px, 400);
+    }
   }
   &__btn {
     @include font(18px, 18px, 400);
@@ -485,43 +669,80 @@ body {
 }
 
 .footer {
-  padding: 40px 0;
+  padding: 40px 0 20px;
+  @media (min-width: 1025px){
+    padding: 120px 0 40px;
+  }
   .container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media (min-width: 1025px) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
   }
   &__logo-wrap {
     margin-bottom: 40px;
+    @media (min-width: 1025px){
+      margin-bottom: 0;
+    }
+  }
+  &__nav-wrap {
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+    margin-bottom: 40px;
+    @media (min-width: 768px) {
+      flex-direction: row;
+      column-gap: 40px;
+    }
+    @media (min-width: 1025px) {
+      column-gap: 198.5px;
+    }
   }
   &__nav {
     display: flex;
     flex-direction: column;
     gap: 8px;
   }
-  &__nav:first-of-type {
-    margin-bottom: 50px;
-  }
-  &__nav:last-of-type {
-    margin-bottom: 40px;
-  }
   &__title {
     @include font(20px, 28px, 400);
     color: $title;
     margin-bottom: 4px;
     text-align: center;
+    @media (min-width: 1025px){
+      margin-bottom: 16px;
+    }
   }
   &__link {
+    @include font(14px, 14px, 400);
     text-align: center;
     color: $text;
+    @media (min-width: 1025px){
+      text-align: start;
+    }
   }
   &__subscribe {
     margin-bottom: 20px;
+    width: 100%;
+    max-width: 385px;
+    margin: 0 auto;
+    @media (min-width: 1025px){
+      flex: 0 1 385px;
+      margin: 0;
+    }
   }
   &__subscribe-text {
-    @include font(20px, 140%, 400);
+    @include font(20px, 28px, 400);
     color: $footer;
+    font-family: 'Inter';
+    text-align: start;
     margin-bottom: 20px;
+    @media (min-width: 1025px){
+      max-width: 198px;
+    }
   }
   &__form {
     display: flex;
@@ -529,6 +750,9 @@ body {
     gap: 12px;
     border-bottom: 0.5px solid $text;
     padding-bottom: 16px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 385px;
   }
   &__form:focus-within {
     border-bottom-color: $subtitle;
@@ -554,5 +778,10 @@ body {
   &__copyright {
     @include font(12px, 12px, 400);
     color: $text;
+    text-align: center;
+    margin-top: 20px;
+    @media (min-width: 1025px){
+      margin-top: 55px;
+    }
   }
 }
