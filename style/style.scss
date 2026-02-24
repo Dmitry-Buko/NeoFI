@@ -17,7 +17,7 @@ body {
   display: flex;
   align-items: center;
   gap: 11px;
-  span {
+  .logo__text {
     @include font(22px, 27px, 500);
     color: $logo;
   }
@@ -29,6 +29,7 @@ body {
   border-radius: 24px;
   padding: 11.2px 20px;
   margin: 0 auto 16px;
+  max-width: max-content;
 }
 .header {
   padding: 20px 0;
@@ -120,20 +121,19 @@ body {
   }
 }
 .banner {
-  &__wrap {
+  padding: 40px 0;
+  .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 40px;
+    gap: 15px;
     @media (min-width: 768px) {
       flex-direction: row;
-      margin: 60px 0;
+      margin: 60px auto;
     }
   }
   &__description {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    margin-bottom: 32px;
     @media (min-width: 768px) {
       align-items: start;
     }
@@ -147,7 +147,7 @@ body {
     padding: 11.5px 11px;
     border: none;
     z-index: 1;
-    max-width: 137px;
+    // max-width: 137px;
     @media (min-width: 768px) {
       margin: 0 0 24px;
     }
@@ -200,70 +200,42 @@ body {
       margin-bottom: 43px;
     }
   }
-  &__buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
   &__btn-start {
     @include font(16px, 20px, 400);
     color: $body;
     background-color: $subtitle;
+    display: block;
     border: none;
     border-radius: 40px;
     padding: 14px 24px;
     max-width: 140px;
     margin: 0 auto;
+    @media (min-width: 768px) {
+      margin: 0;
+    }
     @media (min-width: 1025px) {
       @include font(18px, 18px, 400);
       max-width: 151px;
     }
   }
-
-  // &__btn-video {
-  //   @include font(16px, 20px, 400);
-  //   position: relative;
-  //   display: flex;
-  //   flex-direction: row;
-  //   align-items: center;
-  //   gap: 6px;
-  //   max-width: 178px;
-  //   width: 100%;
-  //   color: $title;
-  //   background-color: $body;
-  //   border: none;
-  //   border-radius: 40px;
-  //   padding: 14px 23px;
-  //   margin: 0 auto;
-  // }
-  // &__btn-video::before {
-  //   content: "";
-  //   position: absolute;
-  //   inset: -1px;
-  //   border-radius: inherit;
-  //   background: linear-gradient(to left, $border, $gradient);
-  //   z-index: -1;
-  // }
   &__img-wrap {
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 32px 0 40px;
+    max-width: 300px;
+    aspect-ratio: 1/1;
+    margin: 0 auto;
     @media (min-width: 768px) {
-      padding: 0;
+      max-width: 400px;
     }
     @media (min-width: 1025px){
-      justify-content: flex-end;
+      max-width: 512px;
     }
   }
   &__img {
-    aspect-ratio: 1/1;
-    width: 82.78%;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
     max-width: 512px;
-    @media (min-width: 768px) {
-      width: 100%;
-    }
   }
 }
 
@@ -294,6 +266,8 @@ body {
     }
   }
   &__item{
+    display: flex;
+    max-width: 97px;
     @media (min-width: 1025px){
       width: 129px;
 
@@ -313,8 +287,8 @@ body {
     padding: 80px 0;
   }
   &__subtitle {
-    max-width: 100px;
-    padding: 11.2px 20px;
+    // max-width: 100px;
+    padding: 11.2px 19.5px;
     @media (min-width: 1025px) {
       margin-bottom: 20px;
     }
@@ -357,17 +331,22 @@ body {
   }
   .feature {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
     padding: 30px 24px;
     background-color: $article;
     border-radius: 12px;
     max-width: 384px;
+    // max-width: 100%;
+    text-align: center;
     @media (min-width: 1025px) {
       padding: 48px 36px;
     }
     &__img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
       margin-bottom: 36px;
     }
     &__title {
@@ -415,7 +394,7 @@ body {
     padding: 120px 0;
   }
   &__subtitle {
-    max-width: 104px;
+    // max-width: 104px;
     @media (min-width: 1025px){
       margin-bottom: 20px;
     }
@@ -475,7 +454,7 @@ body {
       margin-bottom: 19px;
     }
   }
-  &__item-text {
+  &__description { //__description
     @include font(20px, 28px, 400);
     color: $text;
     font-family: "Inter";
@@ -492,7 +471,6 @@ body {
     padding: 60px 0;
   }
   &__subtitle {
-    max-width: 94px;
     padding: 12.7px 20px;
     @media (min-width: 768px) {
       @include font(14px, 14px, 400);
@@ -533,27 +511,33 @@ body {
     flex-direction: column;
     @media (min-width: 768px) {
       flex-direction: row;
+      justify-content: flex-start;
+      column-gap: 15px;
+    }
+    @media (min-width: 1025px){
+      gap: 72px;
     }
   }
   &__img-wrap {
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 32px;
+    max-width: 300px;
+    aspect-ratio: 1/1;
+    margin: 0 auto;
     @media (min-width: 768px) {
-      justify-content: start;
-      padding: 0;
-      flex: 1 1 48%;
+      
+      max-width: 400px;
+    }
+    @media (min-width: 1025px) {
+      margin: 0;
+      max-width: 506px;
     }
   }
   &__img {
-    width: 82.78%;
-    aspect-ratio: 1/1;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
     max-width: 506px;
-    @media (min-width: 768px) {
-      width: 90%;
-    }
   }
   &__article-wrap {
     display: grid;
@@ -561,6 +545,10 @@ body {
     flex: 1 1 52%;
     min-width: 362px;
     max-width: 622px;
+    margin-top: 32px;
+    @media (min-width: 768px){
+      margin-top: 0;
+    }
     @media (min-width: 1025px){
       row-gap: 40px;
     }
@@ -568,13 +556,24 @@ body {
   &__article {
     position: relative;
     display: grid;
-    grid-template-columns: 50px 1fr;
+    grid-template-columns: 30px 1fr;
+    column-gap: 20px;
     background-color: $nextBody;
     max-width: 622px;
     padding: 24px 20px;
     border-radius: 20px;
     @media (min-width: 1025px) {
       padding: 36px 20px;
+    }
+  }
+  &__svg-wrap{
+    width: 100%;
+    aspect-ratio: 1/1;
+    display: flex;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
   }
   &__article::before {
@@ -628,9 +627,9 @@ body {
     gap: 20px;
   }
   &__subtitle {
-    max-width: 137px;
+    // max-width: 137px;
     line-height: 14px;
-    padding: 12.7px 20px;
+    padding: 12.7px 19.5px;
     margin-bottom: 0;
   }
   &__title {
